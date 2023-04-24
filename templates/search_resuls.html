@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Path</th>
+                <th>Modified Time</th>
+                <th>Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.name }}</td>
+                <td>{{ result.path }}</td>
+                <td>{{ result.modified_time }}</td>
+                <td>{{ result.size }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

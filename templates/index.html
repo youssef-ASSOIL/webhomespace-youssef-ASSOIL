@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Welcome to Your Home Space</h1>
+    <div class="power"><a href="/logout"><img src="/static/images/bouton-dalimentation-eteint.png"></a></div>
+    <div class="Menu">
+        <div class="first">Files: {{ file_count }}</div>
+        <div class="second">Dirs: {{ dir_count }}</div>
+        <div class="third">Space: {{ space_usage * 100 }}%</div>
+    </div>    
+    <div class="searchBar_2">
+        <div class="searchBar">
+            <input id="searchInput">
+            <div onclick="searchFiles()"><img src="/static/images/rechercher.png"></div>
+        </div>
+        <div><a href="/download_home" download>
+        <img  src="/static/images/energie.png"></a>
+    </div>
+    </div>
+    <h1>Directories in Home Space</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Directory Name</th>
+                <th>Date de modification</th>
+                <th>taille</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for directory, mtime in directories.items() %}
+            <tr>
+                <td>{{ directory }}</td>
+                <td>{{ mtime.strftime("%Y-%m-%d %H:%M:%S") }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="/static/count.js"></script>
+</body>
+</html>
